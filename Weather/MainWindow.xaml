@@ -1,0 +1,44 @@
+﻿<Window x:Class="Weather.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Weather" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="10">
+            <ListBox x:Name="DaysListBox" Margin="0,0,0,10" Height="180"/>
+            <TextBlock Text="Средняя температура:"/>
+            <TextBlock x:Name="AverageTempTextBlock" />
+            <TextBlock Text="Максимальная температура:"/>
+            <TextBlock x:Name="MaxTempTextBlock" />
+            <TextBlock Text="Минимальная температура:"/>
+            <TextBlock x:Name="MinTempTextBlock" />
+            <TextBlock Text="Максимальное количество повторений:"/>
+            <TextBlock x:Name="MaxRepeatDaysTextBlock" />
+            <TextBlock Text="Аномальный спад:"/>
+            <TextBlock x:Name="AnomalFallTextBlock" />
+            <TextBlock Text="Аномальный подъем:"/>
+            <TextBlock x:Name="AnomalUpTextBlock" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="Сортировка:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="Sort" Margin="0,0,0,10" SelectionChanged="Sort_SelectionChanged">
+                <ComboBoxItem Content="По возрастанию дней" />
+                <ComboBoxItem Content="По возрастанию температуры" />
+            </ComboBox>
+            <TextBlock Text="Фильтрация:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="Filter" Margin="0,0,0,50" SelectionChanged="Filter_SelectionChanged">
+                <ComboBoxItem Content="Все температуры" />
+                <ComboBoxItem Content="Минусовые температуры" />
+                <ComboBoxItem Content="Плюсовые температуры" />
+            </ComboBox>
+            <TextBlock Text="Добавить новый день (введите погоду):" Margin="0,0,0,5"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="TempInput" Margin="0,0,0,0" Width="270"/>
+                <Button Content="+" Click="AddDay_Click" Width="20" Height="20" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
